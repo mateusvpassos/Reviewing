@@ -3,6 +3,7 @@ package com.start.reviewing.endpoint.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
