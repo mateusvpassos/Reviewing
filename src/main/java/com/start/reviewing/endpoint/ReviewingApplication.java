@@ -1,4 +1,4 @@
-package com.start.reviewing.endpoint.config;
+package com.start.reviewing.endpoint;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
