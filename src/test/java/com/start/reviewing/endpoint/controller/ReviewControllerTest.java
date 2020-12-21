@@ -27,7 +27,7 @@ public class ReviewControllerTest {
     }
     //@Test
     public void list(){
-        System.out.println(reviewController.reviewList());
+        //System.out.println(reviewController.reviewList());
     }
 
     //@Test

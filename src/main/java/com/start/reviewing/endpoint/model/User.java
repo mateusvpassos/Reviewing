@@ -25,6 +25,8 @@ public class User {
     private String email;
     @Column(nullable = false)
     private LocalDate date;
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 80)
     private String password;
+    @Column(nullable = false)
+    private Boolean role;
 }

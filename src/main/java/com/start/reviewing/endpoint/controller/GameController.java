@@ -5,7 +5,10 @@ import com.start.reviewing.endpoint.exception.NotFoundException;
 import com.start.reviewing.endpoint.model.Game;
 import com.start.reviewing.endpoint.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,9 +21,8 @@ public class GameController {
     private GameService gameService;
 
     @GetMapping
-    public List<Game> gameList(){
-
-        return gameService.list();
+    public ResponseEntity<?> gameList(Pageable pageable){
+        return new ResponseEntity<>(gameService.list(pageable), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -33,12 +35,14 @@ public class GameController {
     }
 
     @PostMapping
+//    @PreAuthorize("hasRole('ADMIN')")
     public Game gameSave(@RequestBody Game game){
 
         return gameService.save(game);
     }
 
     @DeleteMapping("/{id}")
+//    @PreAuthorize("hasRole('ADMIN')")
     public Game gameDelete(@PathVariable Long id){
         try{
             return gameService.delete(id);
@@ -48,6 +52,7 @@ public class GameController {
     }
 
     @PutMapping
+//    @PreAuthorize("hasRole('ADMIN')")
     public Game gameEdit(@RequestBody Game game){
 
         return gameService.edit(game);

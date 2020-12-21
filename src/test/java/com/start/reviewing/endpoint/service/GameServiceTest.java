@@ -17,7 +17,7 @@ public class GameServiceTest {
     }
     //@Test
     public void list(){
-        System.out.println(gameService.list());
+        //System.out.println(gameService.list());
     }
 
     //@Test
