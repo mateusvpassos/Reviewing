@@ -4,6 +4,9 @@ import com.start.reviewing.endpoint.exception.NotFoundException;
 import com.start.reviewing.endpoint.model.Review;
 import com.start.reviewing.endpoint.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +26,8 @@ public class ReviewService {
         return review.get();
     }
 
-    public List<Review> list(){
-        return reviewRepository.findAll();
+    public ResponseEntity<?> list(Pageable pageable){
+        return new ResponseEntity<>(reviewRepository.findAll(pageable), HttpStatus.OK);
     }
 
     public Review save(Review review){

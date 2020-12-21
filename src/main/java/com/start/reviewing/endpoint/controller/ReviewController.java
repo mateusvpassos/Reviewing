@@ -5,7 +5,10 @@ import com.start.reviewing.endpoint.exception.NotFoundException;
 import com.start.reviewing.endpoint.model.Review;
 import com.start.reviewing.endpoint.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,9 +21,8 @@ public class ReviewController {
     private ReviewService reviewService;
 
     @GetMapping
-    public List<Review> reviewList(){
-
-        return reviewService.list();
+    public ResponseEntity<?> reviewList(Pageable pageable){
+        return new ResponseEntity<>(reviewService.list(pageable), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

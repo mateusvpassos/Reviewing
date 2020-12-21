@@ -4,6 +4,9 @@ import com.start.reviewing.endpoint.exception.NotFoundException;
 import com.start.reviewing.endpoint.model.Game;
 import com.start.reviewing.endpoint.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +26,8 @@ public class GameService {
         return game.get();
     }
 
-    public List<Game> list(){
-        return gameRepository.findAll();
+    public ResponseEntity<?> list(Pageable pageable){
+        return new ResponseEntity<>(gameRepository.findAll(pageable), HttpStatus.OK);
     }
 
     public Game save(Game game){

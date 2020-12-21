@@ -24,7 +24,7 @@ public class UserControllerTest {
     }
     //@Test
     public void list(){
-        System.out.println(userController.userList());
+        //System.out.println(userController.userList());
     }
 
     //@Test

@@ -25,7 +25,7 @@ public class ReviewServiceTest {
     }
     //@Test
     public void list(){
-        System.out.println(reviewService.list());
+        //System.out.println(reviewService.list());
     }
 
     //@Test

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <a sec:authorize="!isAuthenticated()" href="/login">Login</a>
+    <form id="form-login" th:action="@{/logout}" method="post"></form>
+    <a sec:authorize="isAuthenticated()" href="#" onclick="document.querySelector('#form-login').submit()">Logout</a>
+    <div>Game Reviews</div>
+
+    <div>...Next Atualization</div>
+</body>
+</html>
+
